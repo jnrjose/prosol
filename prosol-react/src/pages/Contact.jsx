@@ -1,6 +1,38 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const Contact = () => {
+  useEffect(() => {
+    // Intersection Observer for animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate')
+          
+          // Stagger child animations
+          const children = entry.target.querySelectorAll('.stagger-child')
+          children.forEach((child, index) => {
+            setTimeout(() => {
+              child.classList.add('animate')
+            }, index * 100)
+          })
+        }
+      })
+    }, observerOptions)
+
+    // Observe elements for animation
+    document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in, .rotate-in').forEach(el => {
+      observer.observe(el)
+    })
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [])
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -42,11 +74,11 @@ const Contact = () => {
       {/* Contact Section */}
       <section className="section">
         <div className="container">
-          <div className="grid grid-2" style={{gap: '4rem', alignItems: 'start'}}>
+          <div className="contact-grid">
             {/* Contact Form */}
             <div className="fade-in">
-              <h2 style={{color: 'var(--text-dark)', fontSize: '2rem', marginBottom: '1.5rem'}}>Send Us a Message</h2>
-              <p style={{color: 'var(--text-gray)', marginBottom: '2rem'}}>
+              <h2 className="section-title" style={{textAlign: 'left', fontSize: '2rem', marginBottom: '1.5rem'}}>Send Us a Message</h2>
+              <p className="section-subtitle" style={{textAlign: 'left', marginBottom: '2rem'}}>
                 Fill out the form below and we'll get back to you within 24 hours to discuss your project requirements.
               </p>
               
@@ -65,12 +97,11 @@ const Contact = () => {
                 </div>
                 
                 <div className="form-group">
-                  <label htmlFor="firstName" className="form-label">First Name *</label>
+                  <label htmlFor="firstName">First Name *</label>
                   <input 
                     type="text" 
                     id="firstName" 
                     name="firstName" 
-                    className="form-input" 
                     value={formData.firstName}
                     onChange={handleChange}
                     required 
@@ -78,12 +109,11 @@ const Contact = () => {
                 </div>
                 
                 <div className="form-group">
-                  <label htmlFor="lastName" className="form-label">Last Name *</label>
+                  <label htmlFor="lastName">Last Name *</label>
                   <input 
                     type="text" 
                     id="lastName" 
                     name="lastName" 
-                    className="form-input" 
                     value={formData.lastName}
                     onChange={handleChange}
                     required 
@@ -91,12 +121,11 @@ const Contact = () => {
                 </div>
                 
                 <div className="form-group">
-                  <label htmlFor="email" className="form-label">Email Address *</label>
+                  <label htmlFor="email">Email Address *</label>
                   <input 
                     type="email" 
                     id="email" 
                     name="email" 
-                    className="form-input" 
                     value={formData.email}
                     onChange={handleChange}
                     required 
@@ -104,35 +133,32 @@ const Contact = () => {
                 </div>
                 
                 <div className="form-group">
-                  <label htmlFor="phone" className="form-label">Phone Number</label>
+                  <label htmlFor="phone">Phone Number</label>
                   <input 
                     type="tel" 
                     id="phone" 
                     name="phone" 
-                    className="form-input" 
                     value={formData.phone}
                     onChange={handleChange}
                   />
                 </div>
                 
                 <div className="form-group">
-                  <label htmlFor="company" className="form-label">Company/Organization</label>
+                  <label htmlFor="company">Company/Organization</label>
                   <input 
                     type="text" 
                     id="company" 
                     name="company" 
-                    className="form-input" 
                     value={formData.company}
                     onChange={handleChange}
                   />
                 </div>
                 
                 <div className="form-group">
-                  <label htmlFor="service" className="form-label">Service Interest *</label>
+                  <label htmlFor="service">Service Interest *</label>
                   <select 
                     id="service" 
                     name="service" 
-                    className="form-input" 
                     value={formData.service}
                     onChange={handleChange}
                     required
@@ -147,11 +173,10 @@ const Contact = () => {
                 </div>
                 
                 <div className="form-group">
-                  <label htmlFor="message" className="form-label">Project Details *</label>
+                  <label htmlFor="message">Project Details *</label>
                   <textarea 
                     id="message" 
                     name="message" 
-                    className="form-textarea" 
                     rows="5" 
                     placeholder="Please describe your project requirements, goals, and any specific challenges you're facing..." 
                     value={formData.message}

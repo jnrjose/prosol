@@ -51,8 +51,17 @@ const Home = () => {
     }, observerOptions)
 
     // Observe elements for animation
-    document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in, .rotate-in').forEach(el => {
+    document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in, .rotate-in, .bounce-in, .flip-in, .zoom-in, .text-reveal').forEach(el => {
       observer.observe(el)
+    })
+
+    // Text reveal animation
+    const textRevealElements = document.querySelectorAll('.text-reveal')
+    textRevealElements.forEach(element => {
+      const text = element.textContent
+      element.innerHTML = text.split('').map(char => 
+        char === ' ' ? ' ' : `<span>${char}</span>`
+      ).join('')
     })
 
     // Counter animation
@@ -108,14 +117,14 @@ const Home = () => {
         }}></div>
         <div className="container">
           <div className="hero-content fade-in">
-            <h1 ref={heroTitleRef} className="hero-title typing">Engineering Excellence in Every Project</h1>
-            <p className="hero-subtitle">
+            <h1 ref={heroTitleRef} className="hero-title text-reveal">Engineering Excellence in Every Project</h1>
+            <p className="hero-subtitle slide-in-right">
               PROSOL Integrated Services delivers cutting-edge solutions in telecommunications, 
               engineering, and ICT services across Nigeria and beyond.
             </p>
-            <div className="hero-buttons">
-              <Link to="/services" className="btn btn-primary">Our Services</Link>
-              <Link to="/contact" className="btn btn-secondary">Get Quote</Link>
+            <div className="hero-buttons bounce-in">
+              <Link to="/services" className="btn btn-primary hover-lift">Our Services</Link>
+              <Link to="/contact" className="btn btn-secondary hover-lift">Get Quote</Link>
             </div>
           </div>
         </div>
@@ -162,18 +171,18 @@ const Home = () => {
           </div>
           
           <div className="grid grid-3">
-            <div className="service-card scale-in stagger-child">
-              <div className="card-icon">📡</div>
+            <div className="service-card scale-in stagger-child hover-lift">
+              <div className="card-icon float">📡</div>
               <h3>Telecommunications</h3>
               <p>Advanced telecom infrastructure, network design, and communication solutions for businesses of all sizes.</p>
             </div>
-            <div className="service-card scale-in stagger-child">
-              <div className="card-icon">🏗️</div>
+            <div className="service-card scale-in stagger-child hover-lift">
+              <div className="card-icon float">🏗️</div>
               <h3>Engineering & Construction</h3>
               <p>Comprehensive engineering services from design to implementation, ensuring quality and compliance.</p>
             </div>
-            <div className="service-card scale-in stagger-child">
-              <div className="card-icon">💻</div>
+            <div className="service-card scale-in stagger-child hover-lift">
+              <div className="card-icon float">💻</div>
               <h3>ICT & Security</h3>
               <p>Cutting-edge IT solutions, cybersecurity, and digital transformation services for modern businesses.</p>
             </div>

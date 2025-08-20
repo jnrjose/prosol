@@ -1,8 +1,80 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState('all')
+
+  useEffect(() => {
+    // Intersection Observer for animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate')
+          
+          // Stagger child animations
+          const children = entry.target.querySelectorAll('.stagger-child')
+          children.forEach((child, index) => {
+            setTimeout(() => {
+              child.classList.add('animate')
+            }, index * 100)
+          })
+        }
+      })
+    }, observerOptions)
+
+    // Observe elements for animation
+    document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in, .rotate-in').forEach(el => {
+      observer.observe(el)
+    })
+
+    // Counter animation for stats
+    const animateCounters = () => {
+      const counters = document.querySelectorAll('.stat-number')
+      
+      counters.forEach(counter => {
+        const target = parseInt(counter.dataset.count || counter.textContent.replace(/\D/g, ''))
+        const duration = 2000
+        const increment = target / (duration / 16)
+        let current = 0
+        
+        const updateCounter = () => {
+          current += increment
+          if (current < target) {
+            counter.textContent = Math.floor(current).toLocaleString()
+            requestAnimationFrame(updateCounter)
+          } else {
+            counter.textContent = target.toLocaleString()
+          }
+        }
+        
+        updateCounter()
+      })
+    }
+
+    // Trigger counter animation when stats section is visible
+    const statsSection = document.querySelector('.stats-grid')
+    if (statsSection) {
+      const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateCounters()
+            statsObserver.unobserve(entry.target)
+          }
+        })
+      }, { threshold: 0.5 })
+      
+      statsObserver.observe(statsSection)
+    }
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [])
 
   const handleFilterClick = (filter) => {
     setActiveFilter(filter)
@@ -71,18 +143,12 @@ const Portfolio = () => {
           </div>
 
           {/* Portfolio Grid */}
-          <div className="portfolio-grid">
-            {filteredItems.map((item) => (
+          <div className="portfolio-grid fade-in">
+            {filteredItems.map((item, index) => (
               <div 
                 key={item.id} 
-                className="portfolio-item" 
+                className="portfolio-item stagger-child" 
                 data-category={item.category}
-                style={{
-                  display: 'block',
-                  opacity: 1,
-                  transform: 'scale(1)',
-                  transition: 'all 0.3s ease'
-                }}
               >
                 <div className="portfolio-image">
                   <img src={item.image} alt={item.title} />
@@ -142,17 +208,17 @@ const Portfolio = () => {
             <div className="service-card fade-in stagger-child">
               <div className="card-icon">💬</div>
               <p>"PROSOL delivered an exceptional telecommunications infrastructure for our Lagos office. Their professionalism and technical expertise exceeded our expectations."</p>
-              <div style={{marginTop: '1.5rem', textAlign: 'left'}}>
-                <strong style={{color: 'var(--text-dark)'}}>Adebayo Johnson</strong><br/>
-                <span style={{color: 'var(--text-gray)', fontSize: '0.9rem'}}>CEO, TechCorp Nigeria</span>
+              <div className="testimonial-author">
+                <strong>Adebayo Johnson</strong><br/>
+                <span>CEO, TechCorp Nigeria</span>
               </div>
             </div>
             <div className="service-card fade-in stagger-child">
               <div className="card-icon">💬</div>
               <p>"The engineering team at PROSOL completed our construction project on time and within budget. Their attention to detail and quality is remarkable."</p>
-              <div style={{marginTop: '1.5rem', textAlign: 'left'}}>
-                <strong style={{color: 'var(--text-dark)'}}>Fatima Abdullahi</strong><br/>
-                <span style={{color: 'var(--text-gray)', fontSize: '0.9rem'}}>Project Manager, BuildRight Ltd</span>
+              <div className="testimonial-author">
+                <strong>Fatima Abdullahi</strong><br/>
+                <span>Project Manager, BuildRight Ltd</span>
               </div>
             </div>
           </div>
@@ -170,23 +236,23 @@ const Portfolio = () => {
           </div>
           
           <div className="grid grid-4">
-            <div className="service-card scale-in stagger-child">
-              <div className="card-icon">🏢</div>
+            <div className="service-card scale-in stagger-child hover-lift">
+              <div className="card-icon float">🏢</div>
               <h3>Corporate</h3>
               <p>Enterprise solutions for large corporations and multinational companies.</p>
             </div>
-            <div className="service-card scale-in stagger-child">
-              <div className="card-icon">🏥</div>
+            <div className="service-card scale-in stagger-child hover-lift">
+              <div className="card-icon float">🏥</div>
               <h3>Healthcare</h3>
               <p>Specialized ICT and communication systems for healthcare facilities.</p>
             </div>
-            <div className="service-card scale-in stagger-child">
-              <div className="card-icon">🏫</div>
+            <div className="service-card scale-in stagger-child hover-lift">
+              <div className="card-icon float">🏫</div>
               <h3>Education</h3>
               <p>Technology infrastructure for schools and educational institutions.</p>
             </div>
-            <div className="service-card scale-in stagger-child">
-              <div className="card-icon">🏛️</div>
+            <div className="service-card scale-in stagger-child hover-lift">
+              <div className="card-icon float">🏛️</div>
               <h3>Government</h3>
               <p>Public sector projects and government infrastructure development.</p>
             </div>

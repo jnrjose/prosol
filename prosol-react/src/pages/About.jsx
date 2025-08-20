@@ -1,7 +1,39 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 const About = () => {
+  useEffect(() => {
+    // Intersection Observer for animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate')
+          
+          // Stagger child animations
+          const children = entry.target.querySelectorAll('.stagger-child')
+          children.forEach((child, index) => {
+            setTimeout(() => {
+              child.classList.add('animate')
+            }, index * 100)
+          })
+        }
+      })
+    }, observerOptions)
+
+    // Observe elements for animation
+    document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in, .rotate-in').forEach(el => {
+      observer.observe(el)
+    })
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [])
   return (
     <div>
       {/* Hero Section */}
@@ -89,33 +121,33 @@ const About = () => {
           </div>
           
           <div className="grid grid-3">
-            <div className="service-card scale-in stagger-child">
-              <div className="card-icon">⚡</div>
+            <div className="service-card scale-in stagger-child hover-lift">
+              <div className="card-icon float">⚡</div>
               <h3>Excellence</h3>
               <p>We strive for perfection in every project, ensuring the highest quality standards and exceeding client expectations.</p>
             </div>
-            <div className="service-card scale-in stagger-child">
-              <div className="card-icon">🤝</div>
+            <div className="service-card scale-in stagger-child hover-lift">
+              <div className="card-icon float">🤝</div>
               <h3>Integrity</h3>
               <p>We conduct business with honesty, transparency, and ethical practices, building trust with all stakeholders.</p>
             </div>
-            <div className="service-card scale-in stagger-child">
-              <div className="card-icon">💡</div>
+            <div className="service-card scale-in stagger-child hover-lift">
+              <div className="card-icon float">💡</div>
               <h3>Innovation</h3>
               <p>We embrace cutting-edge technologies and creative solutions to solve complex engineering challenges.</p>
             </div>
-            <div className="service-card scale-in stagger-child">
-              <div className="card-icon">👥</div>
+            <div className="service-card scale-in stagger-child hover-lift">
+              <div className="card-icon float">👥</div>
               <h3>Collaboration</h3>
               <p>We work closely with clients and partners to achieve shared goals and create lasting relationships.</p>
             </div>
-            <div className="service-card scale-in stagger-child">
-              <div className="card-icon">🌱</div>
+            <div className="service-card scale-in stagger-child hover-lift">
+              <div className="card-icon float">🌱</div>
               <h3>Sustainability</h3>
               <p>We are committed to environmentally responsible practices and sustainable development solutions.</p>
             </div>
-            <div className="service-card scale-in stagger-child">
-              <div className="card-icon">🎯</div>
+            <div className="service-card scale-in stagger-child hover-lift">
+              <div className="card-icon float">🎯</div>
               <h3>Results</h3>
               <p>We focus on delivering measurable outcomes that drive business growth and operational efficiency.</p>
             </div>

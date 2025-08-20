@@ -1,8 +1,41 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 const Services = () => {
   const [activeService, setActiveService] = useState(null)
+
+  useEffect(() => {
+    // Intersection Observer for animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate')
+          
+          // Stagger child animations
+          const children = entry.target.querySelectorAll('.stagger-child')
+          children.forEach((child, index) => {
+            setTimeout(() => {
+              child.classList.add('animate')
+            }, index * 100)
+          })
+        }
+      })
+    }, observerOptions)
+
+    // Observe elements for animation
+    document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in, .rotate-in').forEach(el => {
+      observer.observe(el)
+    })
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [])
 
   const handleServiceClick = (serviceId) => {
     setActiveService(activeService === serviceId ? null : serviceId)
@@ -35,26 +68,26 @@ const Services = () => {
           
           <div className="grid grid-3">
             <div 
-              className={`service-card ${activeService === 'telecom' ? 'service-card-active' : ''} scale-in stagger-child`}
+              className={`service-card ${activeService === 'telecom' ? 'service-card-active' : ''} scale-in stagger-child hover-lift`}
               onClick={() => handleServiceClick('telecom')}
             >
-              <div className="card-icon">📡</div>
+              <div className="card-icon float">📡</div>
               <h3>Telecommunications</h3>
               <p>Advanced telecom infrastructure, network design, and communication solutions for businesses of all sizes.</p>
             </div>
             <div 
-              className={`service-card ${activeService === 'engineering' ? 'service-card-active' : ''} scale-in stagger-child`}
+              className={`service-card ${activeService === 'engineering' ? 'service-card-active' : ''} scale-in stagger-child hover-lift`}
               onClick={() => handleServiceClick('engineering')}
             >
-              <div className="card-icon">🏗️</div>
+              <div className="card-icon float">🏗️</div>
               <h3>Engineering & Construction</h3>
               <p>Comprehensive engineering services from design to implementation, ensuring quality and compliance.</p>
             </div>
             <div 
-              className={`service-card ${activeService === 'ict' ? 'service-card-active' : ''} scale-in stagger-child`}
+              className={`service-card ${activeService === 'ict' ? 'service-card-active' : ''} scale-in stagger-child hover-lift`}
               onClick={() => handleServiceClick('ict')}
             >
-              <div className="card-icon">💻</div>
+              <div className="card-icon float">💻</div>
               <h3>ICT & Security</h3>
               <p>Cutting-edge IT solutions, cybersecurity, and digital transformation services for modern businesses.</p>
             </div>
@@ -67,11 +100,11 @@ const Services = () => {
         <div className="container">
           <div className="service-details-container">
             {activeService === null && (
-              <div className="service-selection-message text-center">
-                <h3 style={{color: 'var(--text-dark)', fontSize: '1.5rem', marginBottom: '1rem'}}>
+              <div className="service-selection-message text-center fade-in">
+                <h3 className="section-title" style={{fontSize: '1.5rem', marginBottom: '1rem'}}>
                   Click on a service above to learn more
                 </h3>
-                <p style={{color: 'var(--text-gray)'}}>
+                <p className="section-subtitle" style={{marginBottom: '0'}}>
                   Discover detailed information about our comprehensive service offerings
                 </p>
               </div>
@@ -80,38 +113,38 @@ const Services = () => {
             {/* Telecommunications Details */}
             <div id="telecom-details" className={`service-details ${activeService === 'telecom' ? 'show' : ''}`}>
               <div className="grid grid-2">
-                <div>
-                  <h3 style={{color: 'var(--text-dark)', fontSize: '2rem', marginBottom: '1.5rem'}}>
+                <div className="slide-in-left">
+                  <h3 className="section-title" style={{textAlign: 'left', fontSize: '2rem', marginBottom: '1.5rem'}}>
                     Telecommunications Solutions
                   </h3>
-                  <p style={{color: 'var(--text-gray)', fontSize: '1.125rem', lineHeight: '1.8', marginBottom: '2rem'}}>
+                  <p className="section-subtitle" style={{textAlign: 'left', marginBottom: '2rem'}}>
                     We provide comprehensive telecommunications infrastructure and services that keep your business connected and competitive in today's digital landscape.
                   </p>
                   
                   <div className="service-features">
                     <div className="feature-item">
-                      <i className="bi bi-check-circle" style={{color: 'var(--accent-blue)'}}></i>
+                      <i className="bi bi-check-circle"></i>
                       <span>Network Design & Implementation</span>
                     </div>
                     <div className="feature-item">
-                      <i className="bi bi-check-circle" style={{color: 'var(--accent-blue)'}}></i>
+                      <i className="bi bi-check-circle"></i>
                       <span>Fiber Optic Installation</span>
                     </div>
                     <div className="feature-item">
-                      <i className="bi bi-check-circle" style={{color: 'var(--accent-blue)'}}></i>
+                      <i className="bi bi-check-circle"></i>
                       <span>Wireless Communication Systems</span>
                     </div>
                     <div className="feature-item">
-                      <i className="bi bi-check-circle" style={{color: 'var(--accent-blue)'}}></i>
+                      <i className="bi bi-check-circle"></i>
                       <span>VoIP Solutions</span>
                     </div>
                     <div className="feature-item">
-                      <i className="bi bi-check-circle" style={{color: 'var(--accent-blue)'}}></i>
+                      <i className="bi bi-check-circle"></i>
                       <span>Network Maintenance & Support</span>
                     </div>
                   </div>
                 </div>
-                <div>
+                <div className="slide-in-right">
                   <div className="image-placeholder" style={{
                     backgroundImage: 'url("https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80")',
                     height: '300px',
@@ -124,40 +157,40 @@ const Services = () => {
             {/* Engineering Details */}
             <div id="engineering-details" className={`service-details ${activeService === 'engineering' ? 'show' : ''}`}>
               <div className="grid grid-2">
-                <div>
+                <div className="slide-in-left">
                   <div className="image-placeholder" style={{
                     backgroundImage: 'url("https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80")',
                     height: '300px',
                     borderRadius: '12px'
                   }} role="img" aria-label="Construction and engineering"></div>
                 </div>
-                <div>
-                  <h3 style={{color: 'var(--text-dark)', fontSize: '2rem', marginBottom: '1.5rem'}}>
+                <div className="slide-in-right">
+                  <h3 className="section-title" style={{textAlign: 'left', fontSize: '2rem', marginBottom: '1.5rem'}}>
                     Engineering & Construction
                   </h3>
-                  <p style={{color: 'var(--text-gray)', fontSize: '1.125rem', lineHeight: '1.8', marginBottom: '2rem'}}>
+                  <p className="section-subtitle" style={{textAlign: 'left', marginBottom: '2rem'}}>
                     From concept to completion, our engineering team delivers innovative solutions that meet the highest standards of quality, safety, and efficiency.
                   </p>
                   
                   <div className="service-features">
                     <div className="feature-item">
-                      <i className="bi bi-check-circle" style={{color: 'var(--accent-blue)'}}></i>
+                      <i className="bi bi-check-circle"></i>
                       <span>Structural Engineering</span>
                     </div>
                     <div className="feature-item">
-                      <i className="bi bi-check-circle" style={{color: 'var(--accent-blue)'}}></i>
+                      <i className="bi bi-check-circle"></i>
                       <span>Project Management</span>
                     </div>
                     <div className="feature-item">
-                      <i className="bi bi-check-circle" style={{color: 'var(--accent-blue)'}}></i>
+                      <i className="bi bi-check-circle"></i>
                       <span>Construction Supervision</span>
                     </div>
                     <div className="feature-item">
-                      <i className="bi bi-check-circle" style={{color: 'var(--accent-blue)'}}></i>
+                      <i className="bi bi-check-circle"></i>
                       <span>Quality Assurance</span>
                     </div>
                     <div className="feature-item">
-                      <i className="bi bi-check-circle" style={{color: 'var(--accent-blue)'}}></i>
+                      <i className="bi bi-check-circle"></i>
                       <span>Compliance & Safety</span>
                     </div>
                   </div>
@@ -168,38 +201,38 @@ const Services = () => {
             {/* ICT Details */}
             <div id="ict-details" className={`service-details ${activeService === 'ict' ? 'show' : ''}`}>
               <div className="grid grid-2">
-                <div>
-                  <h3 style={{color: 'var(--text-dark)', fontSize: '2rem', marginBottom: '1.5rem'}}>
+                <div className="slide-in-left">
+                  <h3 className="section-title" style={{textAlign: 'left', fontSize: '2rem', marginBottom: '1.5rem'}}>
                     ICT & Security Solutions
                   </h3>
-                  <p style={{color: 'var(--text-gray)', fontSize: '1.125rem', lineHeight: '1.8', marginBottom: '2rem'}}>
+                  <p className="section-subtitle" style={{textAlign: 'left', marginBottom: '2rem'}}>
                     Secure your business with our comprehensive ICT solutions, from cybersecurity to digital transformation and cloud services.
                   </p>
                   
                   <div className="service-features">
                     <div className="feature-item">
-                      <i className="bi bi-check-circle" style={{color: 'var(--accent-blue)'}}></i>
+                      <i className="bi bi-check-circle"></i>
                       <span>Cybersecurity Solutions</span>
                     </div>
                     <div className="feature-item">
-                      <i className="bi bi-check-circle" style={{color: 'var(--accent-blue)'}}></i>
+                      <i className="bi bi-check-circle"></i>
                       <span>Cloud Services</span>
                     </div>
                     <div className="feature-item">
-                      <i className="bi bi-check-circle" style={{color: 'var(--accent-blue)'}}></i>
+                      <i className="bi bi-check-circle"></i>
                       <span>IT Infrastructure</span>
                     </div>
                     <div className="feature-item">
-                      <i className="bi bi-check-circle" style={{color: 'var(--accent-blue)'}}></i>
+                      <i className="bi bi-check-circle"></i>
                       <span>Digital Transformation</span>
                     </div>
                     <div className="feature-item">
-                      <i className="bi bi-check-circle" style={{color: 'var(--accent-blue)'}}></i>
+                      <i className="bi bi-check-circle"></i>
                       <span>24/7 Technical Support</span>
                     </div>
                   </div>
                 </div>
-                <div>
+                <div className="slide-in-right">
                   <div className="image-placeholder" style={{
                     backgroundImage: 'url("https://images.unsplash.com/photo-1563206767-5b18f218e8de?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80")',
                     height: '300px',
