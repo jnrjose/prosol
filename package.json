@@ -1,0 +1,30 @@
+{
+  "name": "prosol-integrated-services",
+  "version": "1.0.0",
+  "description": "Professional multipage website for PROSOL Integrated Services - Engineering, Telecommunications, and ICT solutions",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx http-server . -p 3000 -o",
+    "build": "echo 'Static site - no build required'",
+    "start": "npx http-server . -p 8080"
+  },
+  "keywords": [
+    "engineering",
+    "telecommunications",
+    "ict",
+    "construction",
+    "nigeria",
+    "lagos",
+    "prosol"
+  ],
+  "author": "PROSOL Integrated Services Limited",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prosol/website.git"
+  },
+  "homepage": "https://prosolintegrated.com"
+}

@@ -1,0 +1,273 @@
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+
+const Services = () => {
+  const [activeService, setActiveService] = useState(null)
+
+  const handleServiceClick = (serviceId) => {
+    setActiveService(activeService === serviceId ? null : serviceId)
+  }
+
+  return (
+    <main>
+      {/* Hero Section */}
+      <section className="hero">
+        <div className="hero-bg-placeholder" style={{
+          backgroundImage: 'linear-gradient(rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.8)), url("https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80")'
+        }}></div>
+        <div className="container">
+          <div className="hero-content fade-in">
+            <h1 className="hero-title">Our Services</h1>
+            <p className="hero-subtitle">
+              Comprehensive engineering and technology solutions tailored to your business needs.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Overview */}
+      <section className="section">
+        <div className="container">
+          <div className="text-center fade-in" style={{marginBottom: '4rem'}}>
+            <h2 style={{color: 'var(--text-light)', fontSize: '2.5rem', marginBottom: '1rem'}}>What We Offer</h2>
+            <p style={{color: 'var(--text-gray)', fontSize: '1.25rem', maxWidth: '600px', margin: '0 auto'}}>
+              From telecommunications to engineering and ICT solutions, we provide end-to-end services
+            </p>
+          </div>
+          
+          <div className="grid grid-3">
+            <div 
+              className={`service-card ${activeService === 'telecom' ? 'service-card-active' : ''} scale-in stagger-child`}
+              onClick={() => handleServiceClick('telecom')}
+            >
+              <div className="card-icon">📡</div>
+              <h3>Telecommunications</h3>
+              <p>Advanced telecom infrastructure, network design, and communication solutions for businesses of all sizes.</p>
+            </div>
+            <div 
+              className={`service-card ${activeService === 'engineering' ? 'service-card-active' : ''} scale-in stagger-child`}
+              onClick={() => handleServiceClick('engineering')}
+            >
+              <div className="card-icon">🏗️</div>
+              <h3>Engineering & Construction</h3>
+              <p>Comprehensive engineering services from design to implementation, ensuring quality and compliance.</p>
+            </div>
+            <div 
+              className={`service-card ${activeService === 'ict' ? 'service-card-active' : ''} scale-in stagger-child`}
+              onClick={() => handleServiceClick('ict')}
+            >
+              <div className="card-icon">💻</div>
+              <h3>ICT & Security</h3>
+              <p>Cutting-edge IT solutions, cybersecurity, and digital transformation services for modern businesses.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Service Details */}
+      <section className="section" style={{background: 'var(--secondary-dark)'}}>
+        <div className="container">
+          <div className="service-details-container">
+            {activeService === null && (
+              <div className="service-selection-message text-center">
+                <h3 style={{color: 'var(--text-light)', fontSize: '1.5rem', marginBottom: '1rem'}}>
+                  Click on a service above to learn more
+                </h3>
+                <p style={{color: 'var(--text-gray)'}}>
+                  Discover detailed information about our comprehensive service offerings
+                </p>
+              </div>
+            )}
+
+            {/* Telecommunications Details */}
+            <div id="telecom-details" className={`service-details ${activeService === 'telecom' ? 'show' : ''}`}>
+              <div className="grid grid-2">
+                <div>
+                  <h3 style={{color: 'var(--accent-orange)', fontSize: '2rem', marginBottom: '1.5rem'}}>
+                    Telecommunications Solutions
+                  </h3>
+                  <p style={{color: 'var(--text-gray)', fontSize: '1.125rem', lineHeight: '1.8', marginBottom: '2rem'}}>
+                    We provide comprehensive telecommunications infrastructure and services that keep your business connected and competitive in today's digital landscape.
+                  </p>
+                  
+                  <div className="service-features">
+                    <div className="feature-item">
+                      <i className="bi bi-check-circle" style={{color: 'var(--accent-orange)'}}></i>
+                      <span>Network Design & Implementation</span>
+                    </div>
+                    <div className="feature-item">
+                      <i className="bi bi-check-circle" style={{color: 'var(--accent-orange)'}}></i>
+                      <span>Fiber Optic Installation</span>
+                    </div>
+                    <div className="feature-item">
+                      <i className="bi bi-check-circle" style={{color: 'var(--accent-orange)'}}></i>
+                      <span>Wireless Communication Systems</span>
+                    </div>
+                    <div className="feature-item">
+                      <i className="bi bi-check-circle" style={{color: 'var(--accent-orange)'}}></i>
+                      <span>VoIP Solutions</span>
+                    </div>
+                    <div className="feature-item">
+                      <i className="bi bi-check-circle" style={{color: 'var(--accent-orange)'}}></i>
+                      <span>Network Maintenance & Support</span>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div className="image-placeholder" style={{
+                    backgroundImage: 'url("https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80")',
+                    height: '300px',
+                    borderRadius: '12px'
+                  }} role="img" aria-label="Telecommunications equipment"></div>
+                </div>
+              </div>
+            </div>
+
+            {/* Engineering Details */}
+            <div id="engineering-details" className={`service-details ${activeService === 'engineering' ? 'show' : ''}`}>
+              <div className="grid grid-2">
+                <div>
+                  <div className="image-placeholder" style={{
+                    backgroundImage: 'url("https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80")',
+                    height: '300px',
+                    borderRadius: '12px'
+                  }} role="img" aria-label="Construction and engineering"></div>
+                </div>
+                <div>
+                  <h3 style={{color: 'var(--accent-orange)', fontSize: '2rem', marginBottom: '1.5rem'}}>
+                    Engineering & Construction
+                  </h3>
+                  <p style={{color: 'var(--text-gray)', fontSize: '1.125rem', lineHeight: '1.8', marginBottom: '2rem'}}>
+                    From concept to completion, our engineering team delivers innovative solutions that meet the highest standards of quality, safety, and efficiency.
+                  </p>
+                  
+                  <div className="service-features">
+                    <div className="feature-item">
+                      <i className="bi bi-check-circle" style={{color: 'var(--accent-orange)'}}></i>
+                      <span>Structural Engineering</span>
+                    </div>
+                    <div className="feature-item">
+                      <i className="bi bi-check-circle" style={{color: 'var(--accent-orange)'}}></i>
+                      <span>Project Management</span>
+                    </div>
+                    <div className="feature-item">
+                      <i className="bi bi-check-circle" style={{color: 'var(--accent-orange)'}}></i>
+                      <span>Construction Supervision</span>
+                    </div>
+                    <div className="feature-item">
+                      <i className="bi bi-check-circle" style={{color: 'var(--accent-orange)'}}></i>
+                      <span>Quality Assurance</span>
+                    </div>
+                    <div className="feature-item">
+                      <i className="bi bi-check-circle" style={{color: 'var(--accent-orange)'}}></i>
+                      <span>Compliance & Safety</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* ICT Details */}
+            <div id="ict-details" className={`service-details ${activeService === 'ict' ? 'show' : ''}`}>
+              <div className="grid grid-2">
+                <div>
+                  <h3 style={{color: 'var(--accent-orange)', fontSize: '2rem', marginBottom: '1.5rem'}}>
+                    ICT & Security Solutions
+                  </h3>
+                  <p style={{color: 'var(--text-gray)', fontSize: '1.125rem', lineHeight: '1.8', marginBottom: '2rem'}}>
+                    Secure your business with our comprehensive ICT solutions, from cybersecurity to digital transformation and cloud services.
+                  </p>
+                  
+                  <div className="service-features">
+                    <div className="feature-item">
+                      <i className="bi bi-check-circle" style={{color: 'var(--accent-orange)'}}></i>
+                      <span>Cybersecurity Solutions</span>
+                    </div>
+                    <div className="feature-item">
+                      <i className="bi bi-check-circle" style={{color: 'var(--accent-orange)'}}></i>
+                      <span>Cloud Services</span>
+                    </div>
+                    <div className="feature-item">
+                      <i className="bi bi-check-circle" style={{color: 'var(--accent-orange)'}}></i>
+                      <span>IT Infrastructure</span>
+                    </div>
+                    <div className="feature-item">
+                      <i className="bi bi-check-circle" style={{color: 'var(--accent-orange)'}}></i>
+                      <span>Digital Transformation</span>
+                    </div>
+                    <div className="feature-item">
+                      <i className="bi bi-check-circle" style={{color: 'var(--accent-orange)'}}></i>
+                      <span>24/7 Technical Support</span>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div className="image-placeholder" style={{
+                    backgroundImage: 'url("https://images.unsplash.com/photo-1563206767-5b18f218e8de?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80")',
+                    height: '300px',
+                    borderRadius: '12px'
+                  }} role="img" aria-label="ICT and cybersecurity"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section className="section">
+        <div className="container">
+          <div className="text-center fade-in" style={{marginBottom: '4rem'}}>
+            <h2 style={{color: 'var(--text-light)', fontSize: '2.5rem', marginBottom: '1rem'}}>Our Process</h2>
+            <p style={{color: 'var(--text-gray)', fontSize: '1.25rem', maxWidth: '600px', margin: '0 auto'}}>
+              How we deliver exceptional results for every project
+            </p>
+          </div>
+          
+          <div className="grid grid-4">
+            <div className="process-step fade-in stagger-child">
+              <div className="step-number">1</div>
+              <h4>Consultation</h4>
+              <p>We analyze your requirements and provide expert recommendations.</p>
+            </div>
+            <div className="process-step fade-in stagger-child">
+              <div className="step-number">2</div>
+              <h4>Planning</h4>
+              <p>Detailed project planning with timelines, resources, and milestones.</p>
+            </div>
+            <div className="process-step fade-in stagger-child">
+              <div className="step-number">3</div>
+              <h4>Implementation</h4>
+              <p>Professional execution with regular progress updates and quality checks.</p>
+            </div>
+            <div className="process-step fade-in stagger-child">
+              <div className="step-number">4</div>
+              <h4>Support</h4>
+              <p>Ongoing maintenance and support to ensure optimal performance.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="section" style={{background: 'var(--secondary-dark)'}}>
+        <div className="container text-center">
+          <div className="fade-in">
+            <h2 style={{color: 'var(--text-light)', fontSize: '2.5rem', marginBottom: '1.5rem'}}>
+              Ready to Get Started?
+            </h2>
+            <p style={{color: 'var(--text-gray)', fontSize: '1.25rem', marginBottom: '2rem', maxWidth: '600px', margin: '0 auto 2rem'}}>
+              Contact us today to discuss your project requirements and get a customized solution.
+            </p>
+            <div style={{display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap'}}>
+              <Link to="/contact" className="btn btn-primary">Get Quote</Link>
+              <Link to="/portfolio" className="btn btn-secondary">View Portfolio</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  )
+}
+
+export default Services
