@@ -113,8 +113,9 @@ const Home = () => {
       {/* Hero Section */}
       <section className="hero">
         <div className="hero-bg-placeholder" style={{
-          backgroundImage: 'linear-gradient(rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.8)), url("https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80")'
+          backgroundImage: 'url("https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80")'
         }}></div>
+        <div className="hero-bg-overlay"></div>
         <div className="container">
           <div className="hero-content fade-in">
             <h1 ref={heroTitleRef} className="hero-title text-reveal">Engineering Excellence in Every Project</h1>

@@ -97,11 +97,14 @@ const Portfolio = () => {
     <main>
       {/* Hero Section */}
       <section className="hero">
-        <div className="hero-bg-placeholder"></div>
+        <div className="hero-bg-placeholder" style={{
+          backgroundImage: 'url("https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80")'
+        }}></div>
+        <div className="hero-bg-overlay"></div>
         <div className="container">
           <div className="hero-content fade-in">
-            <h1 className="hero-title">Our Portfolio</h1>
-            <p className="hero-subtitle">
+            <h1 className="hero-title text-reveal">Our Portfolio</h1>
+            <p className="hero-subtitle slide-in-right">
               Showcasing our successful projects and the impact we've made across various industries.
             </p>
           </div>

@@ -60,11 +60,14 @@ const Contact = () => {
     <main>
       {/* Hero Section */}
       <section className="hero">
-        <div className="hero-bg-placeholder"></div>
+        <div className="hero-bg-placeholder" style={{
+          backgroundImage: 'url("https://images.unsplash.com/photo-1563206767-5b18f218e8de?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80")'
+        }}></div>
+        <div className="hero-bg-overlay"></div>
         <div className="container">
           <div className="hero-content fade-in">
-            <h1 className="hero-title">Contact Us</h1>
-            <p className="hero-subtitle">
+            <h1 className="hero-title text-reveal">Contact Us</h1>
+            <p className="hero-subtitle slide-in-right">
               Ready to start your next project? Get in touch with our expert team today.
             </p>
           </div>

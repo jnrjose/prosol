@@ -38,11 +38,14 @@ const About = () => {
     <div>
       {/* Hero Section */}
       <section className="hero">
-        <div className="hero-bg-placeholder"></div>
+        <div className="hero-bg-placeholder" style={{
+          backgroundImage: 'url("https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80")'
+        }}></div>
+        <div className="hero-bg-overlay"></div>
         <div className="container">
           <div className="hero-content fade-in">
-            <h1 className="hero-title">About PROSOL</h1>
-            <p className="hero-subtitle">
+            <h1 className="hero-title text-reveal">About PROSOL</h1>
+            <p className="hero-subtitle slide-in-right">
               Leading the way in engineering excellence and technological innovation across Nigeria and beyond.
             </p>
           </div>
