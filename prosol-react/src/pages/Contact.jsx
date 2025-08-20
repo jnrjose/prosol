@@ -197,38 +197,38 @@ const Contact = () => {
             
             {/* Contact Information */}
             <div className="fade-in">
-              <h2 style={{color: 'var(--text-dark)', fontSize: '2rem', marginBottom: '1.5rem'}}>Get in Touch</h2>
-              <p style={{color: 'var(--text-gray)', marginBottom: '2rem'}}>
+              <h2 className="section-title" style={{textAlign: 'left', fontSize: '2rem', marginBottom: '1.5rem'}}>Get in Touch</h2>
+              <p className="section-subtitle" style={{textAlign: 'left', marginBottom: '2rem'}}>
                 We're here to help you achieve your goals. Reach out to us through any of the following channels.
               </p>
               
-              <div className="grid grid-2" style={{gap: '2rem'}}>
-                <div className="service-card">
-                  <div className="card-icon">
+              <div className="contact-info-grid">
+                <div className="service-card stagger-child hover-lift">
+                  <div className="card-icon float">
                     <i className="bi bi-envelope"></i>
                   </div>
                   <h3>Email</h3>
                   <p>info@prosolintegrated.com</p>
                 </div>
                 
-                <div className="service-card">
-                  <div className="card-icon">
+                <div className="service-card stagger-child hover-lift">
+                  <div className="card-icon float">
                     <i className="bi bi-telephone"></i>
                   </div>
                   <h3>Phone</h3>
                   <p>+234 708 666 6611</p>
                 </div>
                 
-                <div className="service-card">
-                  <div className="card-icon">
+                <div className="service-card stagger-child hover-lift">
+                  <div className="card-icon float">
                     <i className="bi bi-geo-alt"></i>
                   </div>
                   <h3>Address</h3>
                   <p>5B, Yemi Ogunniyi Street<br />Anthony Village, Lagos, Nigeria</p>
                 </div>
                 
-                <div className="service-card">
-                  <div className="card-icon">
+                <div className="service-card stagger-child hover-lift">
+                  <div className="card-icon float">
                     <i className="bi bi-clock"></i>
                   </div>
                   <h3>Business Hours</h3>
