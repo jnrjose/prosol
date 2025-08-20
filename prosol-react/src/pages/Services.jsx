@@ -12,9 +12,7 @@ const Services = () => {
     <main>
       {/* Hero Section */}
       <section className="hero">
-        <div className="hero-bg-placeholder" style={{
-          backgroundImage: 'linear-gradient(rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.8)), url("https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80")'
-        }}></div>
+        <div className="hero-bg-placeholder"></div>
         <div className="container">
           <div className="hero-content fade-in">
             <h1 className="hero-title">Our Services</h1>
@@ -28,9 +26,9 @@ const Services = () => {
       {/* Services Overview */}
       <section className="section">
         <div className="container">
-          <div className="text-center fade-in" style={{marginBottom: '4rem'}}>
-            <h2 style={{color: 'var(--text-light)', fontSize: '2.5rem', marginBottom: '1rem'}}>What We Offer</h2>
-            <p style={{color: 'var(--text-gray)', fontSize: '1.25rem', maxWidth: '600px', margin: '0 auto'}}>
+          <div className="text-center fade-in">
+            <h2 className="section-title">What We Offer</h2>
+            <p className="section-subtitle">
               From telecommunications to engineering and ICT solutions, we provide end-to-end services
             </p>
           </div>
@@ -65,12 +63,12 @@ const Services = () => {
       </section>
 
       {/* Service Details */}
-      <section className="section" style={{background: 'var(--secondary-dark)'}}>
+      <section className="section bg-light">
         <div className="container">
           <div className="service-details-container">
             {activeService === null && (
               <div className="service-selection-message text-center">
-                <h3 style={{color: 'var(--text-light)', fontSize: '1.5rem', marginBottom: '1rem'}}>
+                <h3 style={{color: 'var(--text-dark)', fontSize: '1.5rem', marginBottom: '1rem'}}>
                   Click on a service above to learn more
                 </h3>
                 <p style={{color: 'var(--text-gray)'}}>
@@ -83,7 +81,7 @@ const Services = () => {
             <div id="telecom-details" className={`service-details ${activeService === 'telecom' ? 'show' : ''}`}>
               <div className="grid grid-2">
                 <div>
-                  <h3 style={{color: 'var(--accent-orange)', fontSize: '2rem', marginBottom: '1.5rem'}}>
+                  <h3 style={{color: 'var(--text-dark)', fontSize: '2rem', marginBottom: '1.5rem'}}>
                     Telecommunications Solutions
                   </h3>
                   <p style={{color: 'var(--text-gray)', fontSize: '1.125rem', lineHeight: '1.8', marginBottom: '2rem'}}>
@@ -92,23 +90,23 @@ const Services = () => {
                   
                   <div className="service-features">
                     <div className="feature-item">
-                      <i className="bi bi-check-circle" style={{color: 'var(--accent-orange)'}}></i>
+                      <i className="bi bi-check-circle" style={{color: 'var(--accent-blue)'}}></i>
                       <span>Network Design & Implementation</span>
                     </div>
                     <div className="feature-item">
-                      <i className="bi bi-check-circle" style={{color: 'var(--accent-orange)'}}></i>
+                      <i className="bi bi-check-circle" style={{color: 'var(--accent-blue)'}}></i>
                       <span>Fiber Optic Installation</span>
                     </div>
                     <div className="feature-item">
-                      <i className="bi bi-check-circle" style={{color: 'var(--accent-orange)'}}></i>
+                      <i className="bi bi-check-circle" style={{color: 'var(--accent-blue)'}}></i>
                       <span>Wireless Communication Systems</span>
                     </div>
                     <div className="feature-item">
-                      <i className="bi bi-check-circle" style={{color: 'var(--accent-orange)'}}></i>
+                      <i className="bi bi-check-circle" style={{color: 'var(--accent-blue)'}}></i>
                       <span>VoIP Solutions</span>
                     </div>
                     <div className="feature-item">
-                      <i className="bi bi-check-circle" style={{color: 'var(--accent-orange)'}}></i>
+                      <i className="bi bi-check-circle" style={{color: 'var(--accent-blue)'}}></i>
                       <span>Network Maintenance & Support</span>
                     </div>
                   </div>
@@ -134,7 +132,7 @@ const Services = () => {
                   }} role="img" aria-label="Construction and engineering"></div>
                 </div>
                 <div>
-                  <h3 style={{color: 'var(--accent-orange)', fontSize: '2rem', marginBottom: '1.5rem'}}>
+                  <h3 style={{color: 'var(--text-dark)', fontSize: '2rem', marginBottom: '1.5rem'}}>
                     Engineering & Construction
                   </h3>
                   <p style={{color: 'var(--text-gray)', fontSize: '1.125rem', lineHeight: '1.8', marginBottom: '2rem'}}>
@@ -143,23 +141,23 @@ const Services = () => {
                   
                   <div className="service-features">
                     <div className="feature-item">
-                      <i className="bi bi-check-circle" style={{color: 'var(--accent-orange)'}}></i>
+                      <i className="bi bi-check-circle" style={{color: 'var(--accent-blue)'}}></i>
                       <span>Structural Engineering</span>
                     </div>
                     <div className="feature-item">
-                      <i className="bi bi-check-circle" style={{color: 'var(--accent-orange)'}}></i>
+                      <i className="bi bi-check-circle" style={{color: 'var(--accent-blue)'}}></i>
                       <span>Project Management</span>
                     </div>
                     <div className="feature-item">
-                      <i className="bi bi-check-circle" style={{color: 'var(--accent-orange)'}}></i>
+                      <i className="bi bi-check-circle" style={{color: 'var(--accent-blue)'}}></i>
                       <span>Construction Supervision</span>
                     </div>
                     <div className="feature-item">
-                      <i className="bi bi-check-circle" style={{color: 'var(--accent-orange)'}}></i>
+                      <i className="bi bi-check-circle" style={{color: 'var(--accent-blue)'}}></i>
                       <span>Quality Assurance</span>
                     </div>
                     <div className="feature-item">
-                      <i className="bi bi-check-circle" style={{color: 'var(--accent-orange)'}}></i>
+                      <i className="bi bi-check-circle" style={{color: 'var(--accent-blue)'}}></i>
                       <span>Compliance & Safety</span>
                     </div>
                   </div>
@@ -171,7 +169,7 @@ const Services = () => {
             <div id="ict-details" className={`service-details ${activeService === 'ict' ? 'show' : ''}`}>
               <div className="grid grid-2">
                 <div>
-                  <h3 style={{color: 'var(--accent-orange)', fontSize: '2rem', marginBottom: '1.5rem'}}>
+                  <h3 style={{color: 'var(--text-dark)', fontSize: '2rem', marginBottom: '1.5rem'}}>
                     ICT & Security Solutions
                   </h3>
                   <p style={{color: 'var(--text-gray)', fontSize: '1.125rem', lineHeight: '1.8', marginBottom: '2rem'}}>
@@ -180,23 +178,23 @@ const Services = () => {
                   
                   <div className="service-features">
                     <div className="feature-item">
-                      <i className="bi bi-check-circle" style={{color: 'var(--accent-orange)'}}></i>
+                      <i className="bi bi-check-circle" style={{color: 'var(--accent-blue)'}}></i>
                       <span>Cybersecurity Solutions</span>
                     </div>
                     <div className="feature-item">
-                      <i className="bi bi-check-circle" style={{color: 'var(--accent-orange)'}}></i>
+                      <i className="bi bi-check-circle" style={{color: 'var(--accent-blue)'}}></i>
                       <span>Cloud Services</span>
                     </div>
                     <div className="feature-item">
-                      <i className="bi bi-check-circle" style={{color: 'var(--accent-orange)'}}></i>
+                      <i className="bi bi-check-circle" style={{color: 'var(--accent-blue)'}}></i>
                       <span>IT Infrastructure</span>
                     </div>
                     <div className="feature-item">
-                      <i className="bi bi-check-circle" style={{color: 'var(--accent-orange)'}}></i>
+                      <i className="bi bi-check-circle" style={{color: 'var(--accent-blue)'}}></i>
                       <span>Digital Transformation</span>
                     </div>
                     <div className="feature-item">
-                      <i className="bi bi-check-circle" style={{color: 'var(--accent-orange)'}}></i>
+                      <i className="bi bi-check-circle" style={{color: 'var(--accent-blue)'}}></i>
                       <span>24/7 Technical Support</span>
                     </div>
                   </div>
@@ -217,32 +215,32 @@ const Services = () => {
       {/* Process Section */}
       <section className="section">
         <div className="container">
-          <div className="text-center fade-in" style={{marginBottom: '4rem'}}>
-            <h2 style={{color: 'var(--text-light)', fontSize: '2.5rem', marginBottom: '1rem'}}>Our Process</h2>
-            <p style={{color: 'var(--text-gray)', fontSize: '1.25rem', maxWidth: '600px', margin: '0 auto'}}>
+          <div className="text-center fade-in">
+            <h2 className="section-title">Our Process</h2>
+            <p className="section-subtitle">
               How we deliver exceptional results for every project
             </p>
           </div>
           
           <div className="grid grid-4">
-            <div className="process-step fade-in stagger-child">
-              <div className="step-number">1</div>
-              <h4>Consultation</h4>
+            <div className="service-card fade-in stagger-child">
+              <div className="card-icon">1️⃣</div>
+              <h3>Consultation</h3>
               <p>We analyze your requirements and provide expert recommendations.</p>
             </div>
-            <div className="process-step fade-in stagger-child">
-              <div className="step-number">2</div>
-              <h4>Planning</h4>
+            <div className="service-card fade-in stagger-child">
+              <div className="card-icon">2️⃣</div>
+              <h3>Planning</h3>
               <p>Detailed project planning with timelines, resources, and milestones.</p>
             </div>
-            <div className="process-step fade-in stagger-child">
-              <div className="step-number">3</div>
-              <h4>Implementation</h4>
+            <div className="service-card fade-in stagger-child">
+              <div className="card-icon">3️⃣</div>
+              <h3>Implementation</h3>
               <p>Professional execution with regular progress updates and quality checks.</p>
             </div>
-            <div className="process-step fade-in stagger-child">
-              <div className="step-number">4</div>
-              <h4>Support</h4>
+            <div className="service-card fade-in stagger-child">
+              <div className="card-icon">4️⃣</div>
+              <h3>Support</h3>
               <p>Ongoing maintenance and support to ensure optimal performance.</p>
             </div>
           </div>
@@ -250,16 +248,16 @@ const Services = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="section" style={{background: 'var(--secondary-dark)'}}>
+      <section className="section bg-light">
         <div className="container text-center">
           <div className="fade-in">
-            <h2 style={{color: 'var(--text-light)', fontSize: '2.5rem', marginBottom: '1.5rem'}}>
+            <h2 className="section-title">
               Ready to Get Started?
             </h2>
-            <p style={{color: 'var(--text-gray)', fontSize: '1.25rem', marginBottom: '2rem', maxWidth: '600px', margin: '0 auto 2rem'}}>
+            <p className="section-subtitle">
               Contact us today to discuss your project requirements and get a customized solution.
             </p>
-            <div style={{display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap'}}>
+            <div className="hero-buttons">
               <Link to="/contact" className="btn btn-primary">Get Quote</Link>
               <Link to="/portfolio" className="btn btn-secondary">View Portfolio</Link>
             </div>
