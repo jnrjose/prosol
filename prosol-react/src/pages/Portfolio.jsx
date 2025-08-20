@@ -25,9 +25,7 @@ const Portfolio = () => {
     <main>
       {/* Hero Section */}
       <section className="hero">
-        <div className="hero-bg-placeholder" style={{
-          backgroundImage: 'linear-gradient(rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.8)), url("https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80")'
-        }}></div>
+        <div className="hero-bg-placeholder"></div>
         <div className="container">
           <div className="hero-content fade-in">
             <h1 className="hero-title">Our Portfolio</h1>
@@ -41,8 +39,8 @@ const Portfolio = () => {
       {/* Portfolio Filter */}
       <section className="section">
         <div className="container">
-          <div className="text-center fade-in" style={{marginBottom: '3rem'}}>
-            <h2 style={{color: 'var(--text-light)', fontSize: '2.5rem', marginBottom: '2rem'}}>Featured Projects</h2>
+          <div className="text-center fade-in">
+            <h2 className="section-title">Featured Projects</h2>
             
             <div className="portfolio-filters">
               <button 
@@ -100,11 +98,11 @@ const Portfolio = () => {
       </section>
 
       {/* Project Stats */}
-      <section className="section" style={{background: 'var(--secondary-dark)'}}>
+      <section className="section bg-light">
         <div className="container">
-          <div className="text-center fade-in" style={{marginBottom: '4rem'}}>
-            <h2 style={{color: 'var(--text-light)', fontSize: '2.5rem', marginBottom: '1rem'}}>Project Statistics</h2>
-            <p style={{color: 'var(--text-gray)', fontSize: '1.25rem', maxWidth: '600px', margin: '0 auto'}}>
+          <div className="text-center fade-in">
+            <h2 className="section-title">Project Statistics</h2>
+            <p className="section-subtitle">
               Numbers that reflect our commitment to excellence
             </p>
           </div>
@@ -133,30 +131,28 @@ const Portfolio = () => {
       {/* Client Testimonials */}
       <section className="section">
         <div className="container">
-          <div className="text-center fade-in" style={{marginBottom: '4rem'}}>
-            <h2 style={{color: 'var(--text-light)', fontSize: '2.5rem', marginBottom: '1rem'}}>What Our Clients Say</h2>
-            <p style={{color: 'var(--text-gray)', fontSize: '1.25rem', maxWidth: '600px', margin: '0 auto'}}>
+          <div className="text-center fade-in">
+            <h2 className="section-title">What Our Clients Say</h2>
+            <p className="section-subtitle">
               Testimonials from satisfied clients across Nigeria
             </p>
           </div>
           
           <div className="grid grid-2">
-            <div className="testimonial-card fade-in stagger-child">
-              <div className="testimonial-content">
-                <p>"PROSOL delivered an exceptional telecommunications infrastructure for our Lagos office. Their professionalism and technical expertise exceeded our expectations."</p>
-              </div>
-              <div className="testimonial-author">
-                <strong>Adebayo Johnson</strong>
-                <span>CEO, TechCorp Nigeria</span>
+            <div className="service-card fade-in stagger-child">
+              <div className="card-icon">💬</div>
+              <p>"PROSOL delivered an exceptional telecommunications infrastructure for our Lagos office. Their professionalism and technical expertise exceeded our expectations."</p>
+              <div style={{marginTop: '1.5rem', textAlign: 'left'}}>
+                <strong style={{color: 'var(--text-dark)'}}>Adebayo Johnson</strong><br/>
+                <span style={{color: 'var(--text-gray)', fontSize: '0.9rem'}}>CEO, TechCorp Nigeria</span>
               </div>
             </div>
-            <div className="testimonial-card fade-in stagger-child">
-              <div className="testimonial-content">
-                <p>"The engineering team at PROSOL completed our construction project on time and within budget. Their attention to detail and quality is remarkable."</p>
-              </div>
-              <div className="testimonial-author">
-                <strong>Fatima Abdullahi</strong>
-                <span>Project Manager, BuildRight Ltd</span>
+            <div className="service-card fade-in stagger-child">
+              <div className="card-icon">💬</div>
+              <p>"The engineering team at PROSOL completed our construction project on time and within budget. Their attention to detail and quality is remarkable."</p>
+              <div style={{marginTop: '1.5rem', textAlign: 'left'}}>
+                <strong style={{color: 'var(--text-dark)'}}>Fatima Abdullahi</strong><br/>
+                <span style={{color: 'var(--text-gray)', fontSize: '0.9rem'}}>Project Manager, BuildRight Ltd</span>
               </div>
             </div>
           </div>
@@ -164,34 +160,34 @@ const Portfolio = () => {
       </section>
 
       {/* Industries Served */}
-      <section className="section" style={{background: 'var(--secondary-dark)'}}>
+      <section className="section bg-light">
         <div className="container">
-          <div className="text-center fade-in" style={{marginBottom: '4rem'}}>
-            <h2 style={{color: 'var(--text-light)', fontSize: '2.5rem', marginBottom: '1rem'}}>Industries We Serve</h2>
-            <p style={{color: 'var(--text-gray)', fontSize: '1.25rem', maxWidth: '600px', margin: '0 auto'}}>
+          <div className="text-center fade-in">
+            <h2 className="section-title">Industries We Serve</h2>
+            <p className="section-subtitle">
               Delivering solutions across diverse sectors
             </p>
           </div>
           
           <div className="grid grid-4">
-            <div className="industry-card scale-in stagger-child">
-              <div className="industry-icon">🏢</div>
-              <h4>Corporate</h4>
+            <div className="service-card scale-in stagger-child">
+              <div className="card-icon">🏢</div>
+              <h3>Corporate</h3>
               <p>Enterprise solutions for large corporations and multinational companies.</p>
             </div>
-            <div className="industry-card scale-in stagger-child">
-              <div className="industry-icon">🏥</div>
-              <h4>Healthcare</h4>
+            <div className="service-card scale-in stagger-child">
+              <div className="card-icon">🏥</div>
+              <h3>Healthcare</h3>
               <p>Specialized ICT and communication systems for healthcare facilities.</p>
             </div>
-            <div className="industry-card scale-in stagger-child">
-              <div className="industry-icon">🏫</div>
-              <h4>Education</h4>
+            <div className="service-card scale-in stagger-child">
+              <div className="card-icon">🏫</div>
+              <h3>Education</h3>
               <p>Technology infrastructure for schools and educational institutions.</p>
             </div>
-            <div className="industry-card scale-in stagger-child">
-              <div className="industry-icon">🏛️</div>
-              <h4>Government</h4>
+            <div className="service-card scale-in stagger-child">
+              <div className="card-icon">🏛️</div>
+              <h3>Government</h3>
               <p>Public sector projects and government infrastructure development.</p>
             </div>
           </div>
@@ -202,13 +198,13 @@ const Portfolio = () => {
       <section className="section">
         <div className="container text-center">
           <div className="fade-in">
-            <h2 style={{color: 'var(--text-light)', fontSize: '2.5rem', marginBottom: '1.5rem'}}>
+            <h2 className="section-title">
               Ready to Start Your Project?
             </h2>
-            <p style={{color: 'var(--text-gray)', fontSize: '1.25rem', marginBottom: '2rem', maxWidth: '600px', margin: '0 auto 2rem'}}>
+            <p className="section-subtitle">
               Join our list of satisfied clients and let us help you achieve your project goals.
             </p>
-            <div style={{display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap'}}>
+            <div className="hero-buttons">
               <Link to="/contact" className="btn btn-primary">Start Your Project</Link>
               <Link to="/services" className="btn btn-secondary">Our Services</Link>
             </div>
