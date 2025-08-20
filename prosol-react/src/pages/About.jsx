@@ -1,8 +1,9 @@
+import React from 'react'
 import { Link } from 'react-router-dom'
 
 const About = () => {
   return (
-    <main>
+    <div>
       {/* Hero Section */}
       <section className="hero">
         <div className="hero-bg-placeholder"></div>
@@ -219,7 +220,7 @@ const About = () => {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   )
 }
 

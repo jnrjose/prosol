@@ -28,9 +28,7 @@ const Contact = () => {
     <main>
       {/* Hero Section */}
       <section className="hero">
-        <div className="hero-bg-placeholder" style={{
-          backgroundImage: 'linear-gradient(rgba(17, 24, 39, 0.9), rgba(17, 24, 39, 0.9)), url("https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80")'
-        }}></div>
+        <div className="hero-bg-placeholder"></div>
         <div className="container">
           <div className="hero-content fade-in">
             <h1 className="hero-title">Contact Us</h1>
@@ -47,7 +45,7 @@ const Contact = () => {
           <div className="grid grid-2" style={{gap: '4rem', alignItems: 'start'}}>
             {/* Contact Form */}
             <div className="fade-in">
-              <h2 style={{color: 'var(--text-light)', fontSize: '2rem', marginBottom: '1.5rem'}}>Send Us a Message</h2>
+              <h2 style={{color: 'var(--text-dark)', fontSize: '2rem', marginBottom: '1.5rem'}}>Send Us a Message</h2>
               <p style={{color: 'var(--text-gray)', marginBottom: '2rem'}}>
                 Fill out the form below and we'll get back to you within 24 hours to discuss your project requirements.
               </p>
@@ -174,50 +172,42 @@ const Contact = () => {
             
             {/* Contact Information */}
             <div className="fade-in">
-              <h2 style={{color: 'var(--text-light)', fontSize: '2rem', marginBottom: '1.5rem'}}>Get in Touch</h2>
+              <h2 style={{color: 'var(--text-dark)', fontSize: '2rem', marginBottom: '1.5rem'}}>Get in Touch</h2>
               <p style={{color: 'var(--text-gray)', marginBottom: '2rem'}}>
                 We're here to help you achieve your goals. Reach out to us through any of the following channels.
               </p>
               
-              <div className="contact-info">
-                <div className="contact-item">
-                  <div className="contact-icon">
+              <div className="grid grid-2" style={{gap: '2rem'}}>
+                <div className="service-card">
+                  <div className="card-icon">
                     <i className="bi bi-envelope"></i>
                   </div>
-                  <div>
-                    <h4>Email</h4>
-                    <p>info@prosolintegrated.com</p>
-                  </div>
+                  <h3>Email</h3>
+                  <p>info@prosolintegrated.com</p>
                 </div>
                 
-                <div className="contact-item">
-                  <div className="contact-icon">
+                <div className="service-card">
+                  <div className="card-icon">
                     <i className="bi bi-telephone"></i>
                   </div>
-                  <div>
-                    <h4>Phone</h4>
-                    <p>+234 708 666 6611</p>
-                  </div>
+                  <h3>Phone</h3>
+                  <p>+234 708 666 6611</p>
                 </div>
                 
-                <div className="contact-item">
-                  <div className="contact-icon">
+                <div className="service-card">
+                  <div className="card-icon">
                     <i className="bi bi-geo-alt"></i>
                   </div>
-                  <div>
-                    <h4>Address</h4>
-                    <p>5B, Yemi Ogunniyi Street<br />Anthony Village, Lagos, Nigeria</p>
-                  </div>
+                  <h3>Address</h3>
+                  <p>5B, Yemi Ogunniyi Street<br />Anthony Village, Lagos, Nigeria</p>
                 </div>
                 
-                <div className="contact-item">
-                  <div className="contact-icon">
+                <div className="service-card">
+                  <div className="card-icon">
                     <i className="bi bi-clock"></i>
                   </div>
-                  <div>
-                    <h4>Business Hours</h4>
-                    <p>Monday - Friday: 8:00 AM - 6:00 PM<br />Saturday: 9:00 AM - 2:00 PM</p>
-                  </div>
+                  <h3>Business Hours</h3>
+                  <p>Monday - Friday: 8:00 AM - 6:00 PM<br />Saturday: 9:00 AM - 2:00 PM</p>
                 </div>
               </div>
               
