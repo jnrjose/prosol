@@ -25,7 +25,7 @@ const Contact = () => {
     }, observerOptions)
 
     // Observe elements for animation
-    document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in, .rotate-in').forEach(el => {
+    document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in, .rotate-in, .bounce-in, .flip-in, .zoom-in, .text-reveal').forEach(el => {
       observer.observe(el)
     })
 
